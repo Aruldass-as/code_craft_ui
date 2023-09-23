@@ -20,8 +20,8 @@ export class LoginComponent {
   getTrendingNews(){
     this.serviceProvider.getApiData().subscribe(
       data=> {
-        console.info('xxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-        console.info(data)
+        // console.info('xxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+        // console.info(data)
         this.tredingNewsData = data;
     });
   }
