@@ -14,9 +14,7 @@ export class ServiceProviderService {
   ) { }
 
   getApiData(){
-    // return this.http.get('//jsonplaceholder.typicode.com/users');
-    return this.http.get('//newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=1d3387bac01b4d188f67fbd0f611f5d7');
-
+     return this.http.get('//jsonplaceholder.typicode.com/users');
     // return this.http.get('//jsonplaceholder.typicode.com/users')
     //   .pipe(map((data: any) => {
     //     return data;
@@ -30,4 +28,14 @@ export class ServiceProviderService {
     //     })
     //   );
   }
+
+  // postCall(){
+  //   const url = 'https://www.sample.com/pc/pc_graph/getDataPC/40/18';
+  //   // You can send a body if needed (replace 'yourData' with actual data)
+  //   const body = {}; // Adjust body as needed
+  //   const headers = new HttpHeaders().set('Content-Type', 'application/json');  // Adjust headers as needed
+
+  //   return this.http.post(url, body, { headers });
+  // }
+
 }
