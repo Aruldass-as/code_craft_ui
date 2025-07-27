@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Generate Image with OpenAI</h2>
+
+  <input [(ngModel)]="prompt" placeholder="Enter prompt" />
+  <button (click)="generate()">Generate</button>
+
+  <div *ngIf="loading">Generating image...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="Generated Image" style="max-width: 100%; margin-top: 20px" />
+</div>

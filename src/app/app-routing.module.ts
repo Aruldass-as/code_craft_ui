@@ -5,12 +5,12 @@ import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     loadChildren: ()=> import('./components/home/home.module').then(m=>m.HomeModule),
     // canActivate: [AuthgurdGuard]
   },
   {
-    path: '',
+    path: 'login',
     component: LoginComponent
   },
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
     component: SignupComponent
   },
    {
-    path: '**',
+    path: '**', // any router not matched it will navigate
     component: LoginComponent
   }
 ];
