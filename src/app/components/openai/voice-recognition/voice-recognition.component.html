@@ -1,0 +1,11 @@
+<div class="container">
+  <input [(ngModel)]="promptVoice" placeholder="Enter prompt" />
+
+  <button (click)="generateVoice()">Generate</button>
+  <button (click)="startVoiceInput()">🎤 Speak</button>
+
+  <div *ngIf="loading">Generating image...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <img *ngIf="imageUrl" [src]="imageUrl" style="max-width: 100%; margin-top: 20px;" />
+</div>

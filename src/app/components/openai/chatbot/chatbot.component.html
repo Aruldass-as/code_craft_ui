@@ -1,0 +1,3 @@
+<input [(ngModel)]="userMessage" placeholder="Type a message..." />
+    <button (click)="askAI()">Send</button>
+    <p *ngIf="aiResponse">GPT: {{ aiResponse }}</p>
