@@ -1,4 +1,60 @@
-<app-ai-conversation></app-ai-conversation>
-<app-chatbot></app-chatbot>
-<app-image-generate></app-image-generate>
-<app-voice-recognition></app-voice-recognition>
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <h2>My Dashboard</h2>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header>
+      <h1>Dashboard</h1>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h3>OpenAI</h3>
+        <p>4</p>
+      </div>
+      <div class="card">
+        <h3>Tensorflow</h3>
+        <p>0</p>
+      </div>
+      <div class="card">
+        <h3>Hugging Face</h3>
+        <p>0</p>
+      </div>
+    </section>
+
+    <section class="charts cards">
+      <div class="chart card">
+        <h3>Chatbot with OpenAI</h3>
+        <!-- <p>Chart placeholder</p> -->
+         <app-chatbot></app-chatbot>
+      </div>
+      <div class="chart card">
+        <h3>Generate Image with OpenAI</h3>
+        <!-- <p>Chart placeholder</p> -->
+         <app-image-generate></app-image-generate>
+      </div>
+    </section>
+
+    <section class="charts cards">
+      <div class="chart card">
+        <h3>Voice Recognition with OpenAI</h3>
+        <!-- <p>Chart placeholder</p> -->
+         <app-voice-recognition></app-voice-recognition>
+      </div>
+      <div class="chart card">
+        <h3>Conversation with OpenAI</h3>
+        <!-- <p>Chart placeholder</p> -->
+         <app-ai-conversation></app-ai-conversation>
+      </div>
+    </section>
+  </main>
+</div>
