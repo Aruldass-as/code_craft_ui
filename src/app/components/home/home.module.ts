@@ -9,6 +9,7 @@ import { AiConversationComponent } from '../openai/ai-conversation/ai-conversati
 import { ChatbotComponent } from '../openai/chatbot/chatbot.component';
 import { ImageGenerateComponent } from '../openai/image-generate/image-generate.component';
 import { VoiceRecognitionComponent } from '../openai/voice-recognition/voice-recognition.component';
+import { VideoGenComponent } from '../openai/video-gen/video-gen.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { VoiceRecognitionComponent } from '../openai/voice-recognition/voice-rec
     AiConversationComponent,
     ChatbotComponent,
     ImageGenerateComponent,
-    VoiceRecognitionComponent
+    VoiceRecognitionComponent,
+    VideoGenComponent
   ],
   imports: [
     CommonModule,
