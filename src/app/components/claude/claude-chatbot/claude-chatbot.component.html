@@ -1,0 +1,5 @@
+<div>
+  <input [(ngModel)]="userMessage" placeholder="Ask Claude..." />
+  <button (click)="send()">Send</button>
+  <p *ngIf="reply">Claude: {{ reply }}</p>
+</div>

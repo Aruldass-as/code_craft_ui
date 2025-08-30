@@ -10,6 +10,9 @@ import { ChatbotComponent } from '../openai/chatbot/chatbot.component';
 import { ImageGenerateComponent } from '../openai/image-generate/image-generate.component';
 import { VoiceRecognitionComponent } from '../openai/voice-recognition/voice-recognition.component';
 import { VideoGenComponent } from '../openai/video-gen/video-gen.component';
+import { GeminiChatbotComponent } from '../gemini/gemini-chatbot/gemini-chatbot.component';
+import { ClaudeChatbotComponent } from '../claude/claude-chatbot/claude-chatbot.component';
+import { PerplexityChatbotComponent } from '../perplexity/perplexity-chatbot/perplexity-chatbot.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { VideoGenComponent } from '../openai/video-gen/video-gen.component';
     ChatbotComponent,
     ImageGenerateComponent,
     VoiceRecognitionComponent,
-    VideoGenComponent
+    VideoGenComponent,
+    GeminiChatbotComponent,
+    ClaudeChatbotComponent,
+    PerplexityChatbotComponent
   ],
   imports: [
     CommonModule,
@@ -27,4 +33,5 @@ import { VideoGenComponent } from '../openai/video-gen/video-gen.component';
     FormsModule
   ]
 })
+
 export class HomeModule { }

@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 
 export class OpenAIService {
-  // private apiUrl = 'http://localhost:3000/api/chat';  // This should point to your Node.js backend
-  // private apiUrlImage = 'http://localhost:3000/api/generate-image';
+  private apiUrl = 'http://localhost:3000/api/chat';  // This should point to your Node.js backend
+  private apiUrlImage = 'http://localhost:3000/api/generate-image';
 
 
-  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/chat';  // This should point to your Node.js backend
-  private apiUrlImage = 'https://code-craft-backend-jy7x.onrender.com/api/generate-image';
+  // private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/chat';  // This should point to your Node.js backend
+  // private apiUrlImage = 'https://code-craft-backend-jy7x.onrender.com/api/generate-image';
 
   constructor(private http: HttpClient) {}
 
