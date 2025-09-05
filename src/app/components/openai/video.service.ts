@@ -9,10 +9,10 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 
 export class VideoGenService {
-  private apiBase = 'http://localhost:3000/api';
+  // private apiBase = 'http://localhost:3000/api';
 
 
-  // private apiBase = 'https://code-craft-backend-jy7x.onrender.com/api';
+  private apiBase = 'https://code-craft-backend-jy7x.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 

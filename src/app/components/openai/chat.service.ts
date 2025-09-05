@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
 
 export class SocketService {
   private socket: Socket;
-  private readonly SERVER_URL = 'http://localhost:3000';
+  // private readonly SERVER_URL = 'http://localhost:3000';
   
-  // private readonly SERVER_URL = 'https://code-craft-backend-jy7x.onrender.com'
+  private readonly SERVER_URL = 'https://code-craft-backend-jy7x.onrender.com'
 
   constructor() {
     this.socket = io(this.SERVER_URL);
