@@ -129,3 +129,69 @@ header h1 {
     flex-direction: column;
   }
 }
+
+// -------------
+.tab-content { display: none; }
+.active { font-weight: bold; color: blue; }
+
+
+// --------------
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.profile-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  max-width: 350px;
+  background-color: #fff;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.designation {
+  font-style: italic;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+
+
+// logo
+
+.logo {
+  width: 150px;
+  height: 150px;
+}
+

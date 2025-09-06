@@ -1,22 +1,24 @@
 <div class="dashboard-container">
   <aside class="sidebar">
-    <h2>My Dashboard</h2>
+    <!-- <h2>Code Craft</h2> -->
+      <img src="assets/code-craft-logo.png" alt="Code Craft">
     <nav>
       <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Analytics</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Settings</a></li>
+        <li><a href="#" [class.active]="selectedTab === 'openai'" (click)="selectTab('openai')">OpenAI</a></li>
+        <li><a href="#" [class.active]="selectedTab === 'gemini'" (click)="selectTab('gemini')">Google gemini</a></li>
+        <li><a href="#" [class.active]="selectedTab === 'claude'" (click)="selectTab('claude')">Claude</a></li>
+        <li><a href="#" [class.active]="selectedTab === 'perplexity'" (click)="selectTab('perplexity')">Perplexity</a></li>
+        <li><a href="#" [class.active]="selectedTab === 'about'" (click)="selectTab('about')">About</a></li>
       </ul>
     </nav>
   </aside>
 
-  <main class="main-content">
+  <main class="main-content" *ngIf="selectedTab === 'openai'">
     <header>
-      <h1>Dashboard</h1>
+      <h5>OpenAI</h5>
     </header>
 
-    <section class="cards">
+    <!-- <section class="cards">
       <div class="card">
         <h3>OpenAI</h3>
         <p>4</p>
@@ -29,57 +31,121 @@
         <h3>Hugging Face</h3>
         <p>0</p>
       </div>
-    </section>
+    </section> -->
 
     <section class="charts cards">
       <div class="chart card">
-        <h3>Chatbot with OpenAI</h3>
+        <h6>Chatbot with OpenAI</h6>
          <app-chatbot></app-chatbot>
       </div>
       <div class="chart card">
-        <h3>Generate Image with OpenAI</h3>
+        <h6>Generate Image with OpenAI</h6>
          <app-image-generate></app-image-generate>
       </div>
     </section>
 
     <section class="charts cards">
       <div class="chart card">
-        <h3>Voice Recognition with OpenAI</h3>
+        <h6>Voice Recognition with OpenAI</h6>
          <app-voice-recognition></app-voice-recognition>
       </div>
       <div class="chart card">
-        <h3>Conversation with OpenAI</h3>
+        <h6>Conversation with OpenAI</h6>
          <app-video-gen></app-video-gen>
       </div>
     </section>
 
     <section class="charts cards">
       <div class="chart card">
-        <h3>Conversation with OpenAI</h3>
+        <h6>Conversation with OpenAI</h6>
          <app-ai-conversation></app-ai-conversation>
       </div>
     </section>
+  </main>
 
+<!-- Google gemini -->
+  <main class="main-content" *ngIf="selectedTab === 'gemini'">
+    <header>
+      <h5>Google gemini</h5>
+    </header>
 
-    <section class="charts cards">
+     <section class="charts cards">
       <div class="chart card">
-        <h3>Google gemini</h3>
-         <app-gemini-chatbot></app-gemini-chatbot>
+        <h6>Chatbot with Google gemini</h6>
+        <app-gemini-chatbot></app-gemini-chatbot>
       </div>
     </section>
+  </main>
 
-    <section class="charts cards">
+
+<!-- Claude -->
+  <main class="main-content" *ngIf="selectedTab === 'claude'">
+    <header>
+      <h5>Claude</h5>
+    </header>
+
+     <section class="charts cards">
       <div class="chart card">
-        <h3>Claude</h3>
-         <app-claude-chatbot></app-claude-chatbot>
+        <h6>Chatbot with Claude</h6>
+        <app-claude-chatbot></app-claude-chatbot>
       </div>
     </section>
+  </main>
 
-    <section class="charts cards">
+
+<!-- Perplexity -->
+  <main class="main-content" *ngIf="selectedTab === 'perplexity'">
+    <header>
+      <h5>Perplexity</h5>
+    </header>
+
+     <section class="charts cards">
       <div class="chart card">
-        <h3>perplexity</h3>
+        <h6>Chatbot with Perplexity</h6>
         <app-perplexity-chatbot></app-perplexity-chatbot>
       </div>
     </section>
+  </main>
+
+  <!-- About -->
+  <main class="main-content" *ngIf="selectedTab === 'about'">
+    <header>
+      <h5>About</h5>
+    </header>
+    <div class="profile-container">
+      <div class="profile-card">
+        <img [src]="profile.photoUrl" alt="Profile Photo" class="profile-photo">
+          <h2>{{ profile.name }}</h2>
+            <p class="designation">{{ profile.designation }}</p>
+              <div class="contact-info">
+                <p>
+                  <a *ngIf="profile.phone" [href]="profile.phone" target="_blank">
+                    <img src="assets/phone.png" alt="Phone" class="icon">
+                  </a>
+                    <a [href]="'tel:' + profile.phone">{{ profile.phone }}</a>
+                </p>
+                <p>
+                  <a *ngIf="profile.gmail" [href]="profile.gmail" target="_blank">
+                    <img src="assets/gmail.png" alt="Gmail" class="icon">
+                  </a>
+                    <a [href]="'mailto:' + profile.gmail">{{ profile.gmail }}</a>
+                </p>
+                <p>
+                  <a *ngIf="profile.mail" [href]="profile.mail" target="_blank">
+                    <img src="assets/mail.png" alt="Mail" class="icon">
+                  </a>
+                    <a [href]="'mailto:' + profile.mail">{{ profile.mail }}</a>
+                </p>
+              </div>
+            <div class="social-links">
+              <a *ngIf="profile.linkedin" [href]="profile.linkedin" target="_blank">
+                <img src="assets/linkedin.png" alt="LinkedIn" class="icon">
+              </a>
+              <a *ngIf="profile.github" [href]="profile.github" target="_blank">
+                <img src="assets/github.png" alt="GitHub" class="icon">
+              </a>
+            </div>
+      </div>
+    </div>
   </main>
 </div>
