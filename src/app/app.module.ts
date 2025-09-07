@@ -9,6 +9,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ServiceProviderService } from './services/service-provider.service';
 import { OpenAIService } from './components/openai/openai.service';
 import { HttpClientModule } from '@angular/common/http';
+import { McpService } from './components/mcp/mcp.service';
+// import { GoogleAuthService } from './services/google-auth.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     ServiceProviderService,
-    OpenAIService
+    OpenAIService,
+    McpService,
+    // GoogleAuthService
   ],
   bootstrap: [AppComponent]
 })

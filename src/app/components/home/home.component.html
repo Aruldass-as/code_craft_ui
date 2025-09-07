@@ -5,6 +5,7 @@
     <nav>
       <ul>
         <li><a href="#" [class.active]="selectedTab === 'openai'" (click)="selectTab('openai')">OpenAI</a></li>
+        <li><a href="#" [class.active]="selectedTab === 'perplexity'" (click)="selectTab('mcp')">MCP</a></li>
         <li><a href="#" [class.active]="selectedTab === 'gemini'" (click)="selectTab('gemini')">Google gemini</a></li>
         <li><a href="#" [class.active]="selectedTab === 'claude'" (click)="selectTab('claude')">Claude</a></li>
         <li><a href="#" [class.active]="selectedTab === 'perplexity'" (click)="selectTab('perplexity')">Perplexity</a></li>
@@ -103,6 +104,20 @@
       <div class="chart card">
         <h6>Chatbot with Perplexity</h6>
         <app-perplexity-chatbot></app-perplexity-chatbot>
+      </div>
+    </section>
+  </main>
+
+<!-- MCP -->
+  <main class="main-content" *ngIf="selectedTab === 'mcp'">
+    <header>
+      <h5>MCP</h5>
+    </header>
+
+     <section class="charts cards">
+      <div class="chart card">
+        <h6>Chatbot with MCP</h6>
+        <app-mcp-chat></app-mcp-chat>
       </div>
     </section>
   </main>

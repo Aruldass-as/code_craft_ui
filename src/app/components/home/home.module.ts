@@ -13,6 +13,7 @@ import { VideoGenComponent } from '../openai/video-gen/video-gen.component';
 import { GeminiChatbotComponent } from '../gemini/gemini-chatbot/gemini-chatbot.component';
 import { ClaudeChatbotComponent } from '../claude/claude-chatbot/claude-chatbot.component';
 import { PerplexityChatbotComponent } from '../perplexity/perplexity-chatbot/perplexity-chatbot.component';
+import { McpChatComponent } from '../mcp/mcp-chat/mcp-chat.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PerplexityChatbotComponent } from '../perplexity/perplexity-chatbot/per
     VideoGenComponent,
     GeminiChatbotComponent,
     ClaudeChatbotComponent,
-    PerplexityChatbotComponent
+    PerplexityChatbotComponent,
+    McpChatComponent
   ],
   imports: [
     CommonModule,
