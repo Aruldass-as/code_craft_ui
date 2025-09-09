@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class GeminiChatService {
-  // private apiUrl = 'http://localhost:3000/api/chat';
-  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/chat';
+  // private apiUrl = 'http://localhost:3000/api/gemini';
+  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/gemini';
 
 
   constructor(private http: HttpClient) {}

@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ClaudeChatService {
-  // private apiUrl = 'http://localhost:3000/api/chat';
-  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/chat';
+  // private apiUrl = 'http://localhost:3000/api/claude';
+  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/claude';
 
 
   constructor(private http: HttpClient) {}
