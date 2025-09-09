@@ -1,0 +1,3 @@
+<input [(ngModel)]="taskDescription" placeholder="Type a message..." />
+    <button (click)="runAgent()">Run Agent</button>
+    <p *ngIf="agentResult">Agent Output: {{ agentResult }}</p>

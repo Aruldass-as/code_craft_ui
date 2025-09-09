@@ -8,6 +8,10 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ServiceProviderService } from './services/service-provider.service';
 import { OpenAIService } from './components/openai/openai.service';
+import { ClaudeChatService } from './components/claude/claude-chat.service';
+import { GeminiChatService } from './components/gemini/gemini-chat.service';
+import { LlmMcpService } from './components/llm-mcp/llmmcp.service';
+import { PerplexityChatService } from './components/perplexity/perplexity-chat.service';
 import { HttpClientModule } from '@angular/common/http';
 import { McpService } from './components/mcp/mcp.service';
 // import { GoogleAuthService } from './services/google-auth.service';
@@ -28,6 +32,10 @@ import { McpService } from './components/mcp/mcp.service';
     ServiceProviderService,
     OpenAIService,
     McpService,
+    ClaudeChatService,
+    GeminiChatService,
+    LlmMcpService,
+    PerplexityChatService
     // GoogleAuthService
   ],
   bootstrap: [AppComponent]
