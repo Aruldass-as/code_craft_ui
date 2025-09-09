@@ -7,7 +7,8 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class McpService {
-  private API_URL = 'http://localhost:3000/api';
+  private API_URL = 'https://code-craft-backend-jy7x.onrender.com/api/ask';
+  // private API_URL = 'http://localhost:3000/api/ask';
 
   constructor(private http: HttpClient) {}
 
