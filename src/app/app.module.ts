@@ -14,6 +14,7 @@ import { LlmMcpService } from './components/llm-mcp/llmmcp.service';
 import { PerplexityChatService } from './components/perplexity/perplexity-chat.service';
 import { HttpClientModule } from '@angular/common/http';
 import { McpService } from './components/mcp/mcp.service';
+import { RagService } from './components/rag/rag.service';
 // import { GoogleAuthService } from './services/google-auth.service';
 
 @NgModule({
@@ -35,7 +36,8 @@ import { McpService } from './components/mcp/mcp.service';
     ClaudeChatService,
     GeminiChatService,
     LlmMcpService,
-    PerplexityChatService
+    PerplexityChatService,
+    RagService
     // GoogleAuthService
   ],
   bootstrap: [AppComponent]

@@ -15,6 +15,7 @@ import { ClaudeChatbotComponent } from '../claude/claude-chatbot/claude-chatbot.
 import { PerplexityChatbotComponent } from '../perplexity/perplexity-chatbot/perplexity-chatbot.component';
 import { McpChatComponent } from '../mcp/mcp-chat/mcp-chat.component';
 import { LlmMcpComponent } from '../llm-mcp/llm-mcp.component';
+import { RagComponent } from '../rag/rag-chat/rag.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LlmMcpComponent } from '../llm-mcp/llm-mcp.component';
     ClaudeChatbotComponent,
     PerplexityChatbotComponent,
     McpChatComponent,
-    LlmMcpComponent
+    LlmMcpComponent,
+    RagComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,8 @@
+<input [(ngModel)]="question" placeholder="Ask a question" />
+    <button (click)="send()">Ask</button>
+    <div *ngIf="answer">
+      <h3>Answer</h3>
+      <p>{{answer}}</p>
+      <h4>Sources</h4>
+      <ul><li *ngFor="let s of sources">{{s.id}} — {{s.text}}</li></ul>
+    </div>
