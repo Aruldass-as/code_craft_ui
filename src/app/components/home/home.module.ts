@@ -16,6 +16,7 @@ import { PerplexityChatbotComponent } from '../perplexity/perplexity-chatbot/per
 import { McpChatComponent } from '../mcp/mcp-chat/mcp-chat.component';
 import { LlmMcpComponent } from '../llm-mcp/llm-mcp.component';
 import { RagComponent } from '../rag/rag-chat/rag.component';
+import { LlamaIndexComponent } from '../llama-index/llama-index.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RagComponent } from '../rag/rag-chat/rag.component';
     PerplexityChatbotComponent,
     McpChatComponent,
     LlmMcpComponent,
-    RagComponent
+    RagComponent,
+    LlamaIndexComponent
   ],
   imports: [
     CommonModule,

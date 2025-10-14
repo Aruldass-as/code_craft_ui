@@ -5,6 +5,7 @@
     <nav>
       <ul>
         <li><a href="#" [class.active]="selectedTab === 'openai'" (click)="selectTab('openai')">OpenAI</a></li>
+        <li><a href="#" [class.active]="selectedTab === 'llamaIndex'" (click)="selectTab('llamaIndex')">LlamaIndex</a></li>
         <li><a href="#" [class.active]="selectedTab === 'perplexity'" (click)="selectTab('mcp')">MCP</a></li>
         <li><a href="#" [class.active]="selectedTab === 'llmmcp'" (click)="selectTab('llmmcp')">LLM + MCP</a></li>
         <li><a href="#" [class.active]="selectedTab === 'rag'" (click)="selectTab('rag')">RAG</a></li>
@@ -148,6 +149,21 @@
       <div class="chart card">
         <h6>RAG</h6>
         <app-rag></app-rag>
+      </div>
+    </section>
+  </main>
+
+
+   <!-- Llama-index -->
+  <main class="main-content" *ngIf="selectedTab === 'llamaIndex'">
+    <header>
+      <h5>Llama</h5>
+    </header>
+
+     <section class="charts cards">
+      <div class="chart card">
+        <h6>Llama</h6>
+        <app-llama-index></app-llama-index>
       </div>
     </section>
   </main>

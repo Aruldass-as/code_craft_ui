@@ -15,6 +15,7 @@ import { PerplexityChatService } from './components/perplexity/perplexity-chat.s
 import { HttpClientModule } from '@angular/common/http';
 import { McpService } from './components/mcp/mcp.service';
 import { RagService } from './components/rag/rag.service';
+import { LlamaIndexService } from './components/llama-index/llama-index.service';
 // import { GoogleAuthService } from './services/google-auth.service';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { RagService } from './components/rag/rag.service';
     GeminiChatService,
     LlmMcpService,
     PerplexityChatService,
-    RagService
+    RagService,
+    LlamaIndexService
     // GoogleAuthService
   ],
   bootstrap: [AppComponent]
