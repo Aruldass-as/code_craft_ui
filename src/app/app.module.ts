@@ -18,6 +18,13 @@ import { RagService } from './components/rag/rag.service';
 import { LlamaIndexService } from './components/llama-index/llama-index.service';
 // import { GoogleAuthService } from './services/google-auth.service';
 
+// state-management component
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { productsReducer } from './components/state-component/products/state/products.reducer';
+import { ProductsEffects } from './components/state-component/products/state/products.effects';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +36,13 @@ import { LlamaIndexService } from './components/llama-index/llama-index.service'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
+    // state-management component
+    StoreModule.forRoot({
+      products: productsReducer
+    }),
+    EffectsModule.forRoot([ProductsEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [
     ServiceProviderService,

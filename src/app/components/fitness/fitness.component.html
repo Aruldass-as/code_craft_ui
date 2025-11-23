@@ -1,0 +1,90 @@
+<div class="container mt-12">
+  <div class="row g-4">
+    <!-- Form Column -->
+    <div class="col-md-6">
+      <div class="card shadow p-4">
+        <h2 class="text-center mb-4 text-primary fw-bold">AI Health & Fitness Coach</h2>
+
+        <form (ngSubmit)="generatePlan()" class="row g-3">
+          <div class="col-6">
+            <label class="form-label">Age</label>
+            <input type="number" class="form-control" [(ngModel)]="userInput.age" name="age">
+          </div>
+
+          <div class="col-6">
+            <label class="form-label">Gender</label>
+            <select class="form-select" [(ngModel)]="userInput.gender" name="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <div class="col-6">
+            <label class="form-label">Fitness Level</label>
+            <select class="form-select" [(ngModel)]="userInput.fitness_level" name="fitness_level">
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+
+          <div class="col-6">
+            <label class="form-label">Goal</label>
+            <input type="text" class="form-control" [(ngModel)]="userInput.goal" name="goal">
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Preferences (optional)</label>
+            <textarea class="form-control" rows="3" [(ngModel)]="userInput.preferences" name="preferences"></textarea>
+          </div>
+
+          <div class="col-12 text-center mt-3">
+            <button class="btn btn-primary px-4 py-2" type="submit">Generate Plan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Result Column -->
+    <div class="col-md-6">
+      <div *ngIf="loading" class="mb-3">
+        <div class="alert alert-info text-center shadow-sm">
+          ⏳ Generating your personalized AI fitness plan...
+        </div>
+      </div>
+
+      <div *ngIf="result">
+        <!-- Workout Plan -->
+        <div class="card shadow mb-3">
+          <div class="card-header bg-success text-white fw-bold">Workout Plan</div>
+          <div class="card-body">
+            <div *ngFor="let day of result.workout_plan.split('\n\n')">
+              <p *ngFor="let line of day.split('\n')">{{ line }}</p>
+              <hr class="my-2">
+            </div>
+          </div>
+        </div>
+
+        <!-- Diet Plan -->
+        <div class="card shadow mb-3">
+          <div class="card-header bg-warning text-dark fw-bold">Diet Plan</div>
+          <div class="card-body">
+            <div *ngFor="let line of result.diet_plan.split('\n')">
+              <p>{{ line }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="card shadow mb-3">
+          <div class="card-header bg-info text-white fw-bold">Tips</div>
+          <div class="card-body">
+            <div *ngFor="let line of result.tips.split('\n')">
+              <p>{{ line }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

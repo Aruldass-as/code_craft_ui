@@ -17,6 +17,10 @@ import { McpChatComponent } from '../mcp/mcp-chat/mcp-chat.component';
 import { LlmMcpComponent } from '../llm-mcp/llm-mcp.component';
 import { RagComponent } from '../rag/rag-chat/rag.component';
 import { LlamaIndexComponent } from '../llama-index/llama-index.component';
+import { FitnessComponent } from '../fitness/fitness.component';
+
+// state-management component
+import { ProductsComponent } from '../state-component/products/products.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { LlamaIndexComponent } from '../llama-index/llama-index.component';
     McpChatComponent,
     LlmMcpComponent,
     RagComponent,
-    LlamaIndexComponent
+    LlamaIndexComponent,
+    FitnessComponent,
+
+    // state-management component
+    ProductsComponent
   ],
   imports: [
     CommonModule,

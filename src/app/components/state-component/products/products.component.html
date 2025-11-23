@@ -1,0 +1,16 @@
+<h2>Products</h2>
+
+<div *ngIf="loading$ | async" class="loading">
+  Loading products...
+</div>
+
+<div *ngIf="error$ | async as error" class="error">
+  Error loading products: {{ error }}
+</div>
+
+<ul>
+  <li *ngFor="let p of (products$ | async)">
+    <!-- <strong>{{ p.title || p.name }}</strong> -->
+    <span> - {{ p.price }} €</span>
+  </li>
+</ul>
