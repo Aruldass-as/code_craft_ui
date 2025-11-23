@@ -9,6 +9,12 @@ export class VoiceService {
 
   constructor(private ngZone: NgZone) {
     const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
+
+    if (!SpeechRecognition) {
+      console.warn("Speech Recognition not supported on this browser");
+      return;
+    }
+
     this.recognition = new SpeechRecognition();
     this.recognition.continuous = false;
     this.recognition.lang = 'en-US';
@@ -17,6 +23,11 @@ export class VoiceService {
   }
 
   startListening(callback: (text: string) => void): void {
+    if (!this.recognition) {
+      alert("Voice recognition not supported on this device.");
+      return;
+    }
+
     this.isListening = true;
 
     this.recognition.onresult = (event: any) => {
@@ -28,7 +39,7 @@ export class VoiceService {
     };
 
     this.recognition.onerror = (event: any) => {
-      console.error('Speech recognition error', event);
+      console.error('Speech recognition error', event.error);
       this.isListening = false;
     };
 
@@ -40,7 +51,9 @@ export class VoiceService {
   }
 
   stopListening(): void {
-    this.recognition.stop();
+    if (this.recognition) {
+      this.recognition.stop();
+    }
     this.isListening = false;
   }
 }

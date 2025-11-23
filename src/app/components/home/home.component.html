@@ -21,20 +21,20 @@
         <span class="label" *ngIf="!isCollapsed">Fitness</span>
       </button>
 
-      <button class="menu-item" [class.active]="selectedTab === 'mcp'" (click)="selectTab('mcp')">
+      <!-- <button class="menu-item" [class.active]="selectedTab === 'mcp'" (click)="selectTab('mcp')">
         <span class="icon material-icons">auto_awesome</span>
         <span class="label" *ngIf="!isCollapsed">MCP</span>
-      </button>
+      </button> -->
 
-      <button class="menu-item" [class.active]="selectedTab === 'llmmcp'" (click)="selectTab('llmmcp')">
+      <!-- <button class="menu-item" [class.active]="selectedTab === 'llmmcp'" (click)="selectTab('llmmcp')">
         <span class="icon material-icons">auto_awesome</span>
         <span class="label" *ngIf="!isCollapsed">LLM + MCP</span>
-      </button>
+      </button> -->
 
-      <button class="menu-item" [class.active]="selectedTab === 'rag'" (click)="selectTab('rag')">
+      <!-- <button class="menu-item" [class.active]="selectedTab === 'rag'" (click)="selectTab('rag')">
         <span class="icon material-icons">auto_awesome</span>
         <span class="label" *ngIf="!isCollapsed">RAG</span>
-      </button>
+      </button> -->
 
       <button class="menu-item" [class.active]="selectedTab === 'gemini'" (click)="selectTab('gemini')">
         <span class="icon material-icons">auto_awesome</span>
@@ -97,14 +97,14 @@
           <h6>Voice Recognition</h6>
           <app-voice-recognition></app-voice-recognition>
         </div>
-        <div class="card">
+        <!-- <div class="card">
           <h6>Video Generation</h6>
           <app-video-gen></app-video-gen>
-        </div>
-        <div class="card">
+        </div> -->
+        <!-- <div class="card">
           <h6>AI Conversation</h6>
           <app-ai-conversation></app-ai-conversation>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -129,34 +129,34 @@
     </section>
 
     <!-- MCP -->
-    <section *ngIf="selectedTab === 'mcp'" class="section-wrapper">
+    <!-- <section *ngIf="selectedTab === 'mcp'" class="section-wrapper">
       <div class="grid">
         <div class="card">
           <h6>MCP</h6>
           <app-mcp-chat></app-mcp-chat>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- LLM + MCP -->
-    <section *ngIf="selectedTab === 'llmmcp'" class="section-wrapper">
+    <!-- <section *ngIf="selectedTab === 'llmmcp'" class="section-wrapper">
       <div class="grid">
         <div class="card">
           <h6>LLM + MCP</h6>
           <app-llm-mcp></app-llm-mcp>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- RAG -->
-    <section *ngIf="selectedTab === 'rag'" class="section-wrapper">
+    <!-- <section *ngIf="selectedTab === 'rag'" class="section-wrapper">
       <div class="grid">
         <div class="card">
           <h6>RAG</h6>
           <app-rag></app-rag>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Google gemini -->
     <section *ngIf="selectedTab === 'gemini'" class="section-wrapper">

@@ -14,15 +14,16 @@ export class VideoGenComponent {
   constructor(private videoGen: VideoGenService) {}
 
   async generate() {
-    this.apiFileId = await this.videoGen.generateVideo(this.prompt).toPromise();
+  const res = await this.videoGen.generateVideo(this.prompt).toPromise();
+  this.apiFileId = res?.apiFileId;
 
-    const interval = setInterval(async () => {
-      const status = await this.videoGen.checkStatus(this.apiFileId).toPromise();
+  const interval = setInterval(async () => {
+    const statusRes = await this.videoGen.checkStatus(this.apiFileId).toPromise();
 
-      if (status && status.status === 'finished') {
-        clearInterval(interval);
-        this.videoUrl = status.apiFileSignedUrl!;
-      }
-    }, 5000);
-  }
+    if (statusRes && statusRes.status === "finished") {
+      clearInterval(interval);
+      this.videoUrl = statusRes.apiFileSignedUrl!;
+    }
+  }, 3000);
+}
 }

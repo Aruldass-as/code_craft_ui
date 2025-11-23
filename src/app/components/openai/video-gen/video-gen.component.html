@@ -1,6 +1,8 @@
 <input [(ngModel)]="prompt" placeholder="Enter prompt" />
-    <button (click)="generate()">Generate Video</button>
-    <div *ngIf="videoUrl">
-      <h3>Video is ready:</h3>
-      <video [src]="videoUrl" controls></video>
-    </div>
+
+<button (click)="generate()">Generate Video</button>
+
+<div *ngIf="videoUrl">
+  <h3>Generated Video:</h3>
+  <video [src]="videoUrl" controls width="400"></video>
+</div>

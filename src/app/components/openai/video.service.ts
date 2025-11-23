@@ -14,10 +14,8 @@ export class VideoGenService {
     return this.http.post<{ apiFileId: string }>(`${this.apiBase}/generate-video`, { prompt });
   }
 
-  checkStatus(apiFileId: string) {
-    return this.http.get<{ status: string, apiFileSignedUrl?: string }>(
-      `${this.apiBase}/video-status/${apiFileId}`
-    );
+  checkStatus(id: string) {
+    return this.http.get<{ status: string, apiFileSignedUrl?: string }>(`${this.apiBase}/video-status/${id}`);
   }
   
 }
