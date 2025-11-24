@@ -24,6 +24,17 @@
 </head>
 <body>
   <app-root></app-root>
+  <button id="mic">Start Mic</button>
+<script>
+document.getElementById('mic').onclick = async () => {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    console.log('Mic access granted', stream);
+  } catch(e) {
+    console.error('Mic access denied', e);
+  }
+};
+</script>
 </body>
 </html>
 
