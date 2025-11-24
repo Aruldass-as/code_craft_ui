@@ -10,12 +10,21 @@ import { GeminiChatService } from '../gemini-chat.service';
 export class GeminiChatbotComponent {
  userMessage = '';
  reply = ''
+ loading = false;
 
   constructor(private geminiChatService: GeminiChatService) {}
 
   send() {
-    this.geminiChatService.sendMessage(this.userMessage).subscribe(res => {
-      this.reply = res.reply;
+    this.loading = true;
+    this.geminiChatService.sendMessage(this.userMessage).subscribe({
+      next: (res) => {
+        this.reply = res.reply;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.reply = err.error.error;
+        this.loading = false;
+      }
     });
   }
 }

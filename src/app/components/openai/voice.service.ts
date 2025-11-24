@@ -1,59 +1,28 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+
+export interface VoiceChatResponse {
+  userText: string;
+  botReply: string;
+  audioBase64: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class VoiceService {
-  private recognition: any;
-  public isListening = false;
+  // private apiUrl = 'http://localhost:3000/api/voice-chatbot';
+  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/voice-chatbot';
+ 
+  constructor(private http: HttpClient) {}
 
-  constructor(private ngZone: NgZone) {
-    const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
+  sendAudio(audioBlob: Blob): Observable<VoiceChatResponse> {
+    const formData = new FormData();
+    formData.append('audio', audioBlob, 'voice.webm');
 
-    if (!SpeechRecognition) {
-      console.warn("Speech Recognition not supported on this browser");
-      return;
-    }
-
-    this.recognition = new SpeechRecognition();
-    this.recognition.continuous = false;
-    this.recognition.lang = 'en-US';
-    this.recognition.interimResults = false;
-    this.recognition.maxAlternatives = 1;
-  }
-
-  startListening(callback: (text: string) => void): void {
-    if (!this.recognition) {
-      alert("Voice recognition not supported on this device.");
-      return;
-    }
-
-    this.isListening = true;
-
-    this.recognition.onresult = (event: any) => {
-      const transcript = event.results[0][0].transcript;
-      this.ngZone.run(() => {
-        callback(transcript);
-        this.isListening = false;
-      });
-    };
-
-    this.recognition.onerror = (event: any) => {
-      console.error('Speech recognition error', event.error);
-      this.isListening = false;
-    };
-
-    this.recognition.onend = () => {
-      this.isListening = false;
-    };
-
-    this.recognition.start();
-  }
-
-  stopListening(): void {
-    if (this.recognition) {
-      this.recognition.stop();
-    }
-    this.isListening = false;
+    return this.http.post<VoiceChatResponse>(this.apiUrl, formData);
   }
 }

@@ -1,5 +1,6 @@
 <div>
   <input [(ngModel)]="userMessage" placeholder="Ask Perplexity..." />
   <button (click)="send()">Send</button>
-  <p *ngIf="reply">Claude: {{ reply }}</p>
+  <div *ngIf="loading">Generating Answer...</div>
+  <p *ngIf="reply">{{ reply }}</p>
 </div>

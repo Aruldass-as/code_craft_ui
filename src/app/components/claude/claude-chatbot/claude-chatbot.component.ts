@@ -10,12 +10,21 @@ import { ClaudeChatService } from '../claude-chat.service';
 export class ClaudeChatbotComponent {
  userMessage = '';
  reply = ''
+ loading = false;
 
   constructor(private claudeChatService: ClaudeChatService) {}
 
   send() {
-    this.claudeChatService.sendMessage(this.userMessage).subscribe(res => {
-      this.reply = res.reply;
+    this.loading = true;
+    this.claudeChatService.sendMessage(this.userMessage).subscribe({
+      next: (res) => {
+         this.reply = res.reply;
+         this.loading = false;
+      },
+      error: (err) => {
+         this.reply = err.error.error;
+         this.loading = false;
+      }
     });
   }
 }

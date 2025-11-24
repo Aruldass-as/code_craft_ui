@@ -9,17 +9,20 @@ import { OpenAIService } from '../openai.service';
 export class ChatbotComponent {
   userMessage = '';
   aiResponse = '';
+  loading = false;
 
   constructor(private openai: OpenAIService) { } 
 
   askAI() {
+    this.loading = true;
     this.openai.sendMessage(this.userMessage).subscribe({
       next: (res) => {
         this.aiResponse = res.reply;
+        this.loading = false;
       },
       error: (err) => {
-        console.error('Error talking to GPT:', err);
-        this.aiResponse = 'Something went wrong';
+        this.aiResponse = err.error.error;
+        this.loading = false;
       }
     });
   }

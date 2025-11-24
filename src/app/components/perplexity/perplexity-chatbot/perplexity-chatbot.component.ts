@@ -10,12 +10,21 @@ import { PerplexityChatService } from '../perplexity-chat.service';
 export class PerplexityChatbotComponent {
  userMessage = '';
  reply = ''
+ loading = false;
 
   constructor(private perplexityChatService: PerplexityChatService) {}
 
   send() {
-    this.perplexityChatService.sendMessage(this.userMessage).subscribe(res => {
-      this.reply = res.reply;
+    this.loading = true;
+    this.perplexityChatService.sendMessage(this.userMessage).subscribe({
+      next: (res) => {
+        this.reply = res.reply;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.reply = 'Error: ' + err.error.error;
+        this.loading = false;
+      }
     });
   }
 }

@@ -2,7 +2,8 @@
   <textarea [(ngModel)]="userQuery" rows="4" cols="60" placeholder="Ask about my data"></textarea>
   <br>
   <button (click)="sendQuery()">Ask</button>
-
+  
+  <div *ngIf="loading">Generating Answer...</div>
   <div *ngIf="response" style="margin-top:20px;text-align:left">
     <h4>Response:</h4>
     <p>{{response}}</p>
