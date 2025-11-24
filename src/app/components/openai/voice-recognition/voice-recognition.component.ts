@@ -19,6 +19,21 @@ export class VoiceRecognitionComponent {
   constructor(private voiceService: VoiceService, private ngZone: NgZone) {}
 
   async startRecording() {
+    try {
+      // 1️⃣ Check microphone permission first
+    const permission = await navigator.permissions.query({ name: 'microphone' as PermissionName });
+
+    if (permission.state === 'denied') {
+      // If user previously blocked, alert and stop
+      alert('Microphone access is blocked. Please enable it in your browser settings.');
+      return;
+    }
+
+    // Optional: You can also listen for changes in permission state
+    permission.onchange = () => {
+      console.log('Microphone permission changed to', permission.state);
+    };
+    
     this.recording = true;
     this.audioChunks = [];
 
@@ -41,6 +56,11 @@ export class VoiceRecognitionComponent {
     };
 
     this.mediaRecorder.start();
+  } catch (err) {
+    console.error('Microphone permission denied', err);
+    this.recording = false;
+    alert('Microphone access is required to use this feature.');
+  }
   }
 
   stopRecording() {
