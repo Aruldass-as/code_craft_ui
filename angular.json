@@ -27,8 +27,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/code-craft-tab-logo.ico",
-              "src/assets",
-              "_headers"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss",
