@@ -21,19 +21,19 @@ export class VoiceRecognitionComponent {
   async startRecording() {
     try {
       // 1️⃣ Check microphone permission first
-    const permission = await navigator.permissions.query({ name: 'microphone' as PermissionName });
+    // const permission = await navigator.permissions.query({ name: 'microphone' as PermissionName });
 
-    if (permission.state === 'denied') {
-      // If user previously blocked, alert and stop
-      alert('Microphone access is blocked. Please enable it in your browser settings.');
-      return;
-    }
+    // if (permission.state === 'denied') {
+    //   // If user previously blocked, alert and stop
+    //   alert('Microphone access is blocked. Please enable it in your browser settings.');
+    //   return;
+    // }
 
-    // Optional: You can also listen for changes in permission state
-    permission.onchange = () => {
-      console.log('Microphone permission changed to', permission.state);
-    };
-    
+    // // Optional: You can also listen for changes in permission state
+    // permission.onchange = () => {
+    //   console.log('Microphone permission changed to', permission.state);
+    // };
+
     this.recording = true;
     this.audioChunks = [];
 
