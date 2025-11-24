@@ -28,7 +28,7 @@
             "assets": [
               "src/code-craft-tab-logo.ico",
               "src/assets",
-              "src/_headers"
+              "_headers"
             ],
             "styles": [
               "src/styles.scss",
