@@ -1,2 +1,2 @@
 /*
-  Permissions-Policy: microphone=(self)
+Permissions-Policy: microphone=("https://codecraft.life")
