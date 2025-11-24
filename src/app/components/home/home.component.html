@@ -12,12 +12,12 @@
       </button>
 
       <button class="menu-item" [class.active]="selectedTab === 'llamaIndex'" (click)="selectTab('llamaIndex')">
-        <span class="icon material-icons">auto_awesome</span>
+        <span class="material-symbols-outlined">game_button_l</span>
         <span class="label" *ngIf="!isCollapsed">LlamaIndex</span>
       </button>
 
       <button class="menu-item" [class.active]="selectedTab === 'fitness'" (click)="selectTab('fitness')">
-        <span class="icon material-icons">auto_awesome</span>
+        <span class="material-symbols-outlined">fitness_trackers</span>
         <span class="label" *ngIf="!isCollapsed">Fitness</span>
       </button>
 
@@ -37,18 +37,23 @@
       </button> -->
 
       <button class="menu-item" [class.active]="selectedTab === 'gemini'" (click)="selectTab('gemini')">
-        <span class="icon material-icons">auto_awesome</span>
+        <span class="material-symbols-outlined">g_mobiledata</span>
         <span class="label" *ngIf="!isCollapsed">Google gemini</span>
       </button>
 
       <button class="menu-item" [class.active]="selectedTab === 'claude'" (click)="selectTab('claude')">
-        <span class="icon material-icons">auto_awesome</span>
+        <span class="material-symbols-outlined">copyright</span>
         <span class="label" *ngIf="!isCollapsed">Claude</span>
       </button>
 
       <button class="menu-item" [class.active]="selectedTab === 'perplexity'" (click)="selectTab('perplexity')">
-        <span class="icon material-icons">auto_awesome</span>
+        <span class="material-symbols-outlined">local_parking</span>
         <span class="label" *ngIf="!isCollapsed">Perplexity</span>
+      </button>
+
+      <button class="menu-item" [class.active]="selectedTab === 'doc-assist'" (click)="selectTab('doc-assist')">
+        <span class="material-symbols-outlined">document_search</span>
+        <span class="label" *ngIf="!isCollapsed">Docs Assist</span>
       </button>
 
       <button class="menu-item" [class.active]="selectedTab === 'about'" (click)="selectTab('about')">
@@ -184,6 +189,16 @@
         <div class="card">
           <h6>Perplexity</h6>
           <app-perplexity-chatbot></app-perplexity-chatbot>
+        </div>
+      </div>
+    </section>
+
+    <!-- Docs Assist -->
+    <section *ngIf="selectedTab === 'doc-assist'" class="section-wrapper">
+      <div class="grid">
+        <div class="card">
+          <h6>Docs Assist</h6>
+          <app-research-assistant></app-research-assistant>
         </div>
       </div>
     </section>

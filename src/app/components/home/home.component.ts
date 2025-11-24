@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-selectedTab: 'openai' | 'llamaIndex' | 'fitness' | 'mcp' | 'llmmcp' | 'rag' | 'gemini'| 'claude' | 'perplexity' | 'about' = 'openai';
+selectedTab: 'openai' | 'llamaIndex' | 'fitness' | 'gemini'| 'claude' | 'perplexity' | 'about' | 'doc-assist' = 'openai';
 isCollapsed = false;
 
 profile = {
@@ -31,7 +31,7 @@ this.isCollapsed = collapsed === 'true';
 }
 
 
-selectTab(tab: 'openai' | 'llamaIndex' | 'fitness' | 'mcp' | 'llmmcp' | 'rag' | 'gemini'| 'claude' | 'perplexity' | 'about') {
+selectTab(tab: 'openai' | 'llamaIndex' | 'fitness' | 'gemini'| 'claude' | 'perplexity' | 'about' | 'doc-assist') {
 this.selectedTab = tab;
 }
 

@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { McpService } from './components/mcp/mcp.service';
 import { RagService } from './components/rag/rag.service';
 import { LlamaIndexService } from './components/llama-index/llama-index.service';
+import { ResearchAssistantService } from './components/research-assistant/research-assistant.service';
 // import { GoogleAuthService } from './services/google-auth.service';
 
 // state-management component
@@ -53,7 +54,8 @@ import { ProductsEffects } from './components/state-component/products/state/pro
     LlmMcpService,
     PerplexityChatService,
     RagService,
-    LlamaIndexService
+    LlamaIndexService,
+    ResearchAssistantService
     // GoogleAuthService
   ],
   bootstrap: [AppComponent]

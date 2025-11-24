@@ -18,6 +18,7 @@ import { LlmMcpComponent } from '../llm-mcp/llm-mcp.component';
 import { RagComponent } from '../rag/rag-chat/rag.component';
 import { LlamaIndexComponent } from '../llama-index/llama-index.component';
 import { FitnessComponent } from '../fitness/fitness.component';
+import { ResearchAssistantComponent } from '../research-assistant/research-assistant.component';
 
 // state-management component
 import { ProductsComponent } from '../state-component/products/products.component';
@@ -38,6 +39,7 @@ import { ProductsComponent } from '../state-component/products/products.componen
     RagComponent,
     LlamaIndexComponent,
     FitnessComponent,
+    ResearchAssistantComponent,
 
     // state-management component
     ProductsComponent

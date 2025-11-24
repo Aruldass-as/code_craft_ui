@@ -1,0 +1,10 @@
+<div class="upload-container">
+  <input type="file" (change)="onFileSelected($event)" />
+  <div *ngIf="loading">Processing...</div>
+
+  <h3 *ngIf="summary">Summary:</h3>
+  <p>{{ summary }}</p>
+
+  <h3 *ngIf="graphData">Concept Graph:</h3>
+
+</div>
