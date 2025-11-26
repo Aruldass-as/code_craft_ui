@@ -12,7 +12,7 @@ isCollapsed = false;
 profile = {
     name: 'Aruldass A',
     photoUrl: 'assets/Aruldass_img.jpeg',
-    designation: 'Full-stack and AI front-end developer',
+    designation: 'Full-Stack & AI Integration Engineer',
     linkedin: 'https://www.linkedin.com/in/aruldass-a-874093a1/',
     github: 'https://github.com/Aruldass-as',
     gmail: 'aruldass.as@gmail.com',
