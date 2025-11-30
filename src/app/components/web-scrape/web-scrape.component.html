@@ -1,0 +1,52 @@
+<h2>Web Scraper</h2>
+<textarea
+  rows="6"
+  [(ngModel)]="urlInput"
+  placeholder="Enter multiple URLs, one per line"
+></textarea>
+
+<button (click)="scrapeMultiple()">Scrape</button>
+
+ <div *ngFor="let item of results" class="result-card">
+  <h3>{{ item.url }}</h3>
+
+  <div *ngIf="!item.success" class="error">
+    Error: {{ item.error }}
+  </div>
+
+  <div *ngIf="item.success && item.data">
+    <!-- Check if data is an object -->
+    <ng-container *ngIf="dataIsObject(item.data)">
+      <p><strong>Title:</strong> {{ item.data.Title }}</p>
+
+      <p><strong>Summary:</strong></p>
+      <p>{{ item.data.Summary }}</p>
+
+      <p><strong>Headings:</strong></p>
+      <ul>
+        <li *ngFor="let h of item.data.Headings">{{ h }}</li>
+      </ul>
+
+      <p><strong>Important Links:</strong></p>
+      <ul>
+        <li *ngFor="let link of item.data.ImportantLinks">
+          {{ link.name }} 
+          <span *ngIf="link.url"> - <a [href]="link.url" target="_blank">{{ link.url }}</a></span>
+        </li>
+      </ul>
+
+      <p><strong>Contact Info:</strong></p>
+      <ul>
+        <!-- <li>Email: {{ item.data.ContactInfo.email || 'N/A' }}</li>
+<li>Phone: {{ item.data.ContactInfo.phone || 'N/A' }}</li> -->
+      </ul>
+    </ng-container>
+
+    <!-- Fallback if data is still a string -->
+    <ng-container *ngIf="!dataIsObject(item.data)">
+      <pre>{{ item.data }}</pre>
+    </ng-container>
+  </div>
+
+  <hr>
+</div>

@@ -21,6 +21,16 @@
         <span class="label" *ngIf="!isCollapsed">Fitness</span>
       </button>
 
+      <button class="menu-item" [class.active]="selectedTab === 'web-scrape'" (click)="selectTab('web-scrape')">
+        <span class="material-symbols-outlined">web</span>
+        <span class="label" *ngIf="!isCollapsed">Web Scrape</span>
+      </button>
+
+      <button class="menu-item" [class.active]="selectedTab === 'doc-assist'" (click)="selectTab('doc-assist')">
+        <span class="material-symbols-outlined">document_search</span>
+        <span class="label" *ngIf="!isCollapsed">Docs Assist</span>
+      </button>
+
       <!-- <button class="menu-item" [class.active]="selectedTab === 'mcp'" (click)="selectTab('mcp')">
         <span class="icon material-icons">auto_awesome</span>
         <span class="label" *ngIf="!isCollapsed">MCP</span>
@@ -49,11 +59,6 @@
       <button class="menu-item" [class.active]="selectedTab === 'perplexity'" (click)="selectTab('perplexity')">
         <span class="material-symbols-outlined">local_parking</span>
         <span class="label" *ngIf="!isCollapsed">Perplexity</span>
-      </button>
-
-      <button class="menu-item" [class.active]="selectedTab === 'doc-assist'" (click)="selectTab('doc-assist')">
-        <span class="material-symbols-outlined">document_search</span>
-        <span class="label" *ngIf="!isCollapsed">Docs Assist</span>
       </button>
 
       <button class="menu-item" [class.active]="selectedTab === 'about'" (click)="selectTab('about')">
@@ -133,6 +138,26 @@
       <!-- </div> -->
     </section>
 
+    <!-- Web Scrape -->
+    <section *ngIf="selectedTab === 'web-scrape'" class="section-wrapper">
+      <!-- <div class="grid"> -->
+        <div class="card">
+          <h6>Web Scrape</h6>
+          <app-web-scrape></app-web-scrape>
+        </div>
+      <!-- </div> -->
+    </section>
+
+        <!-- Docs Assist -->
+    <section *ngIf="selectedTab === 'doc-assist'" class="section-wrapper">
+      <div class="grid">
+        <div class="card">
+          <h6>Docs Assist</h6>
+          <app-research-assistant></app-research-assistant>
+        </div>
+      </div>
+    </section>
+
     <!-- MCP -->
     <!-- <section *ngIf="selectedTab === 'mcp'" class="section-wrapper">
       <div class="grid">
@@ -189,16 +214,6 @@
         <div class="card">
           <h6>Perplexity</h6>
           <app-perplexity-chatbot></app-perplexity-chatbot>
-        </div>
-      </div>
-    </section>
-
-    <!-- Docs Assist -->
-    <section *ngIf="selectedTab === 'doc-assist'" class="section-wrapper">
-      <div class="grid">
-        <div class="card">
-          <h6>Docs Assist</h6>
-          <app-research-assistant></app-research-assistant>
         </div>
       </div>
     </section>

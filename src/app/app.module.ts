@@ -17,6 +17,7 @@ import { McpService } from './components/mcp/mcp.service';
 import { RagService } from './components/rag/rag.service';
 import { LlamaIndexService } from './components/llama-index/llama-index.service';
 import { ResearchAssistantService } from './components/research-assistant/research-assistant.service';
+import { WebScrapeService } from './components/web-scrape/web-scrape.service';
 // import { GoogleAuthService } from './services/google-auth.service';
 
 // state-management component
@@ -55,7 +56,8 @@ import { ProductsEffects } from './components/state-component/products/state/pro
     PerplexityChatService,
     RagService,
     LlamaIndexService,
-    ResearchAssistantService
+    ResearchAssistantService,
+    WebScrapeService
     // GoogleAuthService
   ],
   bootstrap: [AppComponent]

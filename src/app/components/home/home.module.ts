@@ -19,6 +19,7 @@ import { RagComponent } from '../rag/rag-chat/rag.component';
 import { LlamaIndexComponent } from '../llama-index/llama-index.component';
 import { FitnessComponent } from '../fitness/fitness.component';
 import { ResearchAssistantComponent } from '../research-assistant/research-assistant.component';
+import { WebScrapeComponent } from '../web-scrape/web-scrape.component';
 
 // state-management component
 import { ProductsComponent } from '../state-component/products/products.component';
@@ -40,6 +41,7 @@ import { ProductsComponent } from '../state-component/products/products.componen
     LlamaIndexComponent,
     FitnessComponent,
     ResearchAssistantComponent,
+    WebScrapeComponent,
 
     // state-management component
     ProductsComponent
