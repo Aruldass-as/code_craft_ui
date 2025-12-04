@@ -122,7 +122,8 @@
     <section *ngIf="selectedTab === 'llamaIndex'" class="section-wrapper">
       <!-- <div class="grid"> -->
         <div class="card">
-          <h6>LlamaIndex</h6>
+          <h6><b>LlamaIndex</b></h6>
+           <p><i>Note: This app helps you quickly find answers from the document using AI.</i></p>
            <app-llama-index></app-llama-index>
         </div>
       <!-- </div> -->
@@ -142,7 +143,8 @@
     <section *ngIf="selectedTab === 'web-scrape'" class="section-wrapper">
       <div class="grid">
         <div class="card">
-          <h6>Web Scrape</h6>
+          <h6><b>Web Scrape</b></h6>
+          <p><i>Note: Reads web pages and summarizes their information instantly using AI.</i></p>
           <app-web-scrape></app-web-scrape>
         </div>
       </div>
@@ -152,7 +154,8 @@
     <section *ngIf="selectedTab === 'doc-assist'" class="section-wrapper">
       <div class="grid">
         <div class="card">
-          <h6>Docs Assist</h6>
+          <h6><b>Docs Assist</b></h6>
+          <p><i>Note: Upload a document,assistant quickly finds and explains key information.</i></p>
           <app-research-assistant></app-research-assistant>
         </div>
       </div>
