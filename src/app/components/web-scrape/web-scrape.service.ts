@@ -21,7 +21,9 @@ interface ScrapeResponse {
 
 export class WebScrapeService {
 
-  private apiUrl = 'http://localhost:8000/scrape-multiple';
+    // FastAPI endpoint
+  // private apiUrl = 'http://127.0.0.1:8000/scrape-multiple'; 
+  private apiUrl = 'https://fastapi-app-36j5.onrender.com/scrape-multiple'
 
   constructor(private http: HttpClient) {}
 
