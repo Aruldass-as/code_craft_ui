@@ -25,9 +25,10 @@ constructor() { }
 
 
 ngOnInit(): void {
-// restore sidebar state from localStorage
-const collapsed = localStorage.getItem('dashboard.sidebar.collapsed');
-this.isCollapsed = collapsed === 'true';
+  const stored = localStorage.getItem('dashboard.sidebar.collapsed');
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  // Mobile: default collapsed; Desktop: restore from localStorage
+  this.isCollapsed = isMobile ? (stored !== 'false') : (stored === 'true');
 }
 
 
@@ -39,12 +40,6 @@ this.selectedTab = tab;
 toggleSidebar() {
 this.isCollapsed = !this.isCollapsed;
 localStorage.setItem('dashboard.sidebar.collapsed', String(this.isCollapsed));
-}
-
-
-onSearch(query: string) {
-console.log('search:', query);
-// implement search routing or filtering
 }
 
 

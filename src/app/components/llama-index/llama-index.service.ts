@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiConfigService } from '../../services/api-config.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class LlamaIndexService {
-  // FastAPI endpoint
-  // private apiUrl = 'http://127.0.0.1:8000/query'; 
-  private apiUrl = 'https://fastapi-app-36j5.onrender.com/query'
-  
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private apiConfig: ApiConfigService
+  ) {}
 
   queryData(query: string): Observable<any> {
-    return this.http.post(this.apiUrl, { query });
+    return this.http.post(this.apiConfig.getFastApiEndpoint('/query'), { query });
   }
 }

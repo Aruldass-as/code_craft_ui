@@ -13,9 +13,6 @@ import { VideoGenComponent } from '../openai/video-gen/video-gen.component';
 import { GeminiChatbotComponent } from '../gemini/gemini-chatbot/gemini-chatbot.component';
 import { ClaudeChatbotComponent } from '../claude/claude-chatbot/claude-chatbot.component';
 import { PerplexityChatbotComponent } from '../perplexity/perplexity-chatbot/perplexity-chatbot.component';
-import { McpChatComponent } from '../mcp/mcp-chat/mcp-chat.component';
-import { LlmMcpComponent } from '../llm-mcp/llm-mcp.component';
-import { RagComponent } from '../rag/rag-chat/rag.component';
 import { LlamaIndexComponent } from '../llama-index/llama-index.component';
 import { FitnessComponent } from '../fitness/fitness.component';
 import { ResearchAssistantComponent } from '../research-assistant/research-assistant.component';
@@ -35,9 +32,6 @@ import { ProductsComponent } from '../state-component/products/products.componen
     GeminiChatbotComponent,
     ClaudeChatbotComponent,
     PerplexityChatbotComponent,
-    McpChatComponent,
-    LlmMcpComponent,
-    RagComponent,
     LlamaIndexComponent,
     FitnessComponent,
     ResearchAssistantComponent,

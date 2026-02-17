@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiConfigService } from '../../services/api-config.service';
 
 interface ScrapeResult {
   url: string;
@@ -20,14 +21,12 @@ interface ScrapeResponse {
 })
 
 export class WebScrapeService {
-
-    // FastAPI endpoint
-  // private apiUrl = 'http://127.0.0.1:8000/scrape-multiple'; 
-  private apiUrl = 'https://fastapi-app-36j5.onrender.com/scrape-multiple'
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private apiConfig: ApiConfigService
+  ) {}
 
   scrapeMultiple(urls: string[]): Observable<ScrapeResponse> {
-    return this.http.post<ScrapeResponse>(this.apiUrl, { urls });
+    return this.http.post<ScrapeResponse>(this.apiConfig.getFastApiEndpoint('/scrape-multiple'), { urls });
   }
 }

@@ -1,30 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiConfigService } from '../../services/api-config.service';
 
-@Injectable({
-  providedIn: 'root',
-})
-
+@Injectable({ providedIn: 'root' })
 export class OpenAIService {
-  // private apiUrl = 'http://localhost:3000/api/chat';  // This should point to your Node.js backend
-  // private apiUrlImage = 'http://localhost:3000/api/generate-image';
+  constructor(
+    private http: HttpClient,
+    private apiConfig: ApiConfigService
+  ) {}
 
-
-  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/chat';  // This should point to your Node.js backend
-  private apiUrlImage = 'https://code-craft-backend-jy7x.onrender.com/api/generate-image';
-
-  constructor(private http: HttpClient) {}
-
-  // text
   sendMessage(message: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { message });
+    return this.http.post<any>(this.apiConfig.getNodeEndpoint('/chat'), { message });
   }
 
-// image
   generateImage(prompt: string): Observable<any> {
-    return this.http.post<any>(this.apiUrlImage, { prompt });
+    return this.http.post<any>(this.apiConfig.getNodeEndpoint('/generate-image'), { prompt });
   }
-
 }
 

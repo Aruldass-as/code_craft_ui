@@ -10,14 +10,12 @@ import { ServiceProviderService } from './services/service-provider.service';
 import { OpenAIService } from './components/openai/openai.service';
 import { ClaudeChatService } from './components/claude/claude-chat.service';
 import { GeminiChatService } from './components/gemini/gemini-chat.service';
-import { LlmMcpService } from './components/llm-mcp/llmmcp.service';
 import { PerplexityChatService } from './components/perplexity/perplexity-chat.service';
 import { HttpClientModule } from '@angular/common/http';
-import { McpService } from './components/mcp/mcp.service';
-import { RagService } from './components/rag/rag.service';
 import { LlamaIndexService } from './components/llama-index/llama-index.service';
 import { ResearchAssistantService } from './components/research-assistant/research-assistant.service';
 import { WebScrapeService } from './components/web-scrape/web-scrape.service';
+import { ApiConfigService } from './services/api-config.service';
 // import { GoogleAuthService } from './services/google-auth.service';
 
 // state-management component
@@ -49,12 +47,9 @@ import { ProductsEffects } from './components/state-component/products/state/pro
   providers: [
     ServiceProviderService,
     OpenAIService,
-    McpService,
     ClaudeChatService,
     GeminiChatService,
-    LlmMcpService,
     PerplexityChatService,
-    RagService,
     LlamaIndexService,
     ResearchAssistantService,
     WebScrapeService

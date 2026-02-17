@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApiConfigService } from '../../services/api-config.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable({ providedIn: 'root' })
 export class PerplexityChatService {
-  // private apiUrl = 'http://localhost:3000/api/perplexity';
-  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/perplexity';
-
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private apiConfig: ApiConfigService
+  ) {}
 
   sendMessage(message: string) {
-    return this.http.post<{ reply: string }>(this.apiUrl, { message });
+    return this.http.post<{ reply: string }>(this.apiConfig.getNodeEndpoint('/perplexity'), { message });
   }
 }

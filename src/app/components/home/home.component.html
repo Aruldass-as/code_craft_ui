@@ -1,4 +1,6 @@
 <div class="layout">
+  <!-- Mobile overlay when sidebar open -->
+  <div class="sidebar-overlay" [class.visible]="!isCollapsed" (click)="toggleSidebar()" aria-hidden="true"></div>
   <!-- Sidebar -->
   <aside class="sidebar" [class.collapsed]="isCollapsed">
     <div class="logo">
@@ -82,10 +84,6 @@
         <h2 class="page-title">{{ selectedTab | titlecase }}</h2>
       </div>
       <div class="top-right">
-        <div class="search">
-          <input #searchBox placeholder="Search..." (keyup.enter)="onSearch(searchBox.value)" />
-          <span class="material-icons">search</span>
-        </div>
         <div class="profile-mini" (click)="openProfile()">
           <img [src]="profile.photoUrl || 'assets/profile.png'" alt="User" />
         </div>
@@ -161,36 +159,6 @@
       </div>
     </section>
 
-    <!-- MCP -->
-    <!-- <section *ngIf="selectedTab === 'mcp'" class="section-wrapper">
-      <div class="grid">
-        <div class="card">
-          <h6>MCP</h6>
-          <app-mcp-chat></app-mcp-chat>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- LLM + MCP -->
-    <!-- <section *ngIf="selectedTab === 'llmmcp'" class="section-wrapper">
-      <div class="grid">
-        <div class="card">
-          <h6>LLM + MCP</h6>
-          <app-llm-mcp></app-llm-mcp>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- RAG -->
-    <!-- <section *ngIf="selectedTab === 'rag'" class="section-wrapper">
-      <div class="grid">
-        <div class="card">
-          <h6>RAG</h6>
-          <app-rag></app-rag>
-        </div>
-      </div>
-    </section> -->
-
     <!-- Google gemini -->
     <section *ngIf="selectedTab === 'gemini'" class="section-wrapper">
       <div class="grid">
@@ -225,7 +193,7 @@
     <section *ngIf="selectedTab === 'about'" class="section-wrapper about-section">
       <div class="about-card">
         <img [src]="profile.photoUrl" class="profile-photo" />
-        <h2 style="color: black;" >{{ profile.name }}</h2>
+        <h2>{{ profile.name }}</h2>
         <p class="designation">{{ profile.designation }}</p>
         <div class="contact">
           <a *ngIf="profile.phone" [href]="'tel:' + profile.phone">{{ profile.phone }}</a>

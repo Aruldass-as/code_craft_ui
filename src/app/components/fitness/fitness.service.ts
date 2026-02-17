@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiConfigService } from '../../services/api-config.service';
 
 export interface FitnessRequest {
   age: number;
@@ -20,13 +21,12 @@ export interface FitnessResponse {
   providedIn: 'root'
 })
 export class FitnessService {
-  // FastAPI endpoint
-  // private apiUrl = 'http://127.0.0.1:8000/fitness'; 
-  private apiUrl = 'https://fastapi-app-36j5.onrender.com/fitness'
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private apiConfig: ApiConfigService
+  ) {}
 
   getFitnessPlan(payload: FitnessRequest): Observable<FitnessResponse> {
-    return this.http.post<FitnessResponse>(this.apiUrl, payload);
+    return this.http.post<FitnessResponse>(this.apiConfig.getFastApiEndpoint('/fitness'), payload);
   }
 }

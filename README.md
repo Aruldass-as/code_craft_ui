@@ -1,6 +1,21 @@
-# InstantanalyteUi
+# Code Craft UI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+
+## Backend Requirements
+
+This frontend uses **two backends**:
+
+| Backend | Features | Local URL | Deployed |
+|---------|----------|-----------|----------|
+| **FastAPI** | Claude, LlamaIndex, Fitness, Web Scrape, Docs Assist | `http://localhost:8000` | `fastapi-app-36j5.onrender.com` |
+| **Node.js** | OpenAI (chat, image, voice, video), Gemini, Perplexity | `http://localhost:3000/api` | `code-craft-backend-jy7x.onrender.com` |
+
+**For full functionality locally:**
+- Run FastAPI: `cd fastapi_app && uvicorn main:app --reload --port 8000`
+- Run Node.js backend on port 3000 (or use the deployed backend via `environment.ts`)
+
+**Without Node backend:** OpenAI, Gemini, and Perplexity tabs will fail. Claude, LlamaIndex, Fitness, Web Scrape, and Docs Assist work with FastAPI only.
 
 ## Development server
 
