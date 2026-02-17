@@ -3,16 +3,12 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ApiConfigService {
-  /** Node.js backend (OpenAI, Claude, Gemini, Perplexity, MCP, etc.) */
-  readonly nodeApiUrl = environment.apiUrl?.replace(/\/$/, '') || 'https://code-craft-backend-jy7x.onrender.com';
+  /** FastAPI backend (all features: OpenAI, Claude, Gemini, Perplexity, LlamaIndex, etc.) */
+  readonly fastApiUrl = environment.fastApiUrl ?? 'http://localhost:8000';
 
-  /** FastAPI backend (LlamaIndex, fitness, web scrape, docs assist) */
-  readonly fastApiUrl = environment.fastApiUrl || 'https://fastapi-app-36j5.onrender.com';
-
+  /** @deprecated Use getFastApiEndpoint - Node.js backend replaced by FastAPI */
   getNodeEndpoint(path: string): string {
-    const base = this.nodeApiUrl.replace(/\/api\/?$/, '');
-    const p = path.startsWith('/') ? path : `/${path}`;
-    return p.startsWith('/api') ? `${base}${p}` : `${base}/api${p}`;
+    return this.getFastApiEndpoint(path);
   }
 
   getFastApiEndpoint(path: string): string {

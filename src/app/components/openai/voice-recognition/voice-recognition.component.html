@@ -2,9 +2,8 @@
   <button (click)="startRecording()" [disabled]="recording">Start Recording</button>
   <button (click)="stopRecording()" [disabled]="!recording">Stop Recording</button>
   <button (click)="stop()" [disabled]="recording">Stop</button>
-    <div *ngIf="loading">Generating Answer...</div>
-
-
+  <div *ngIf="loading">Generating Answer...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
   <p *ngIf="userText"><strong>User:</strong> {{userText}}</p>
   <p *ngIf="botReply"><strong>Bot:</strong> {{botReply}}</p>
 </div>

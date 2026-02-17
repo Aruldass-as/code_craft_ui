@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApiConfigService } from '../../services/api-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RagService {
-   private apiUrl = 'http://localhost:3000/api/query';
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private apiConfig: ApiConfigService
+  ) {}
 
   uploadFile(file: File) {
     const fd = new FormData();
     fd.append('file', file);
-    return this.http.post('/api/upload', fd);
+    return this.http.post(this.apiConfig.getFastApiEndpoint('/upload'), fd);
   }
 
   ask(question: string) {
-    return this.http.post<{ reply: string }>(this.apiUrl, { question });
+    return this.http.post<{ reply: string }>(this.apiConfig.getFastApiEndpoint('/api/query'), { question });
   }
 }

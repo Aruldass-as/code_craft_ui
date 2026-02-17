@@ -14,14 +14,23 @@ export class ChatbotComponent {
   constructor(private openai: OpenAIService) { } 
 
   askAI() {
+    const msg = this.userMessage?.trim();
+    if (!msg) {
+      this.aiResponse = 'Please enter a message.';
+      return;
+    }
     this.loading = true;
-    this.openai.sendMessage(this.userMessage).subscribe({
+    this.aiResponse = '';
+    this.openai.sendMessage(msg).subscribe({
       next: (res) => {
-        this.aiResponse = res.reply;
+        this.aiResponse = res?.reply ?? res?.response ?? '';
         this.loading = false;
       },
       error: (err) => {
-        this.aiResponse = err.error.error;
+        const detail = err.error?.detail;
+        this.aiResponse = typeof detail === 'string' ? detail
+          : Array.isArray(detail) ? detail.map((d: any) => d?.msg ?? d).join(', ')
+          : err.error?.error || err.message || 'Request failed. Ensure FastAPI is running at http://localhost:8000';
         this.loading = false;
       }
     });

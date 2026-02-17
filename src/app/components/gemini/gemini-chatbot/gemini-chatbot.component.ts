@@ -15,14 +15,20 @@ export class GeminiChatbotComponent {
   constructor(private geminiChatService: GeminiChatService) {}
 
   send() {
+    const msg = this.userMessage?.trim();
+    if (!msg) {
+      this.reply = 'Please enter a message.';
+      return;
+    }
     this.loading = true;
-    this.geminiChatService.sendMessage(this.userMessage).subscribe({
+    this.reply = '';
+    this.geminiChatService.sendMessage(msg).subscribe({
       next: (res) => {
         this.reply = res.reply;
         this.loading = false;
       },
       error: (err) => {
-        this.reply = err.error.error;
+        this.reply = err.error?.detail || err.error?.error || 'Request failed. Add GOOGLE_API_KEY to fastapi_app/.env';
         this.loading = false;
       }
     });

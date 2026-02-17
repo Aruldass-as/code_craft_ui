@@ -1,0 +1,46 @@
+{
+  "/api": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/chat": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/claude": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/gemini": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/perplexity": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/generate-image": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/voice-chatbot": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/query": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/fitness": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/upload": {
+    "target": "http://localhost:8000",
+    "secure": false
+  },
+  "/scrape-multiple": {
+    "target": "http://localhost:8000",
+    "secure": false
+  }
+}

@@ -11,11 +11,11 @@ export class OpenAIService {
   ) {}
 
   sendMessage(message: string): Observable<any> {
-    return this.http.post<any>(this.apiConfig.getNodeEndpoint('/chat'), { message });
+    return this.http.post<any>(this.apiConfig.getFastApiEndpoint('/chat'), { message });
   }
 
   generateImage(prompt: string): Observable<any> {
-    return this.http.post<any>(this.apiConfig.getNodeEndpoint('/generate-image'), { prompt });
+    return this.http.post<any>(this.apiConfig.getFastApiEndpoint('/generate-image'), { prompt });
   }
 }
 

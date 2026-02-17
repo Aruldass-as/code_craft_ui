@@ -5,5 +5,5 @@
   <div *ngIf="loading">Generating image...</div>
   <div *ngIf="error" class="error">{{ error }}</div>
 
-  <img *ngIf="imageUrl" [src]="imageUrl" alt="Generated Image" style="max-width: 100%; margin-top: 20px" />
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="Generated Image" style="max-width: 100%; margin-top: 20px" referrerpolicy="no-referrer" (error)="onImageError()" />
 </div>

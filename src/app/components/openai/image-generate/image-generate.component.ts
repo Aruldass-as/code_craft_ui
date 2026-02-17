@@ -14,6 +14,11 @@ export class ImageGenerateComponent {
 
   constructor(private openai: OpenAIService){}
 
+  onImageError() {
+    this.imageUrl = null;
+    this.error = 'Failed to load image. URL may have expired.';
+  }
+
   generate() {
     if (!this.prompt) return;
     this.loading = true;
@@ -22,11 +27,11 @@ export class ImageGenerateComponent {
 
     this.openai.generateImage(this.prompt).subscribe({
       next: (res) => {
-        this.imageUrl = res.imageUrl;
+        this.imageUrl = res?.url ?? res?.imageUrl ?? null;
         this.loading = false;
       },
       error: (err) => {
-        this.error = 'Image generation failed.';
+        this.error = err.error?.detail || err.error?.error || 'Image generation failed.';
         this.loading = false;
         console.error(err);
       },

@@ -10,6 +10,6 @@ export class GeminiChatService {
   ) {}
 
   sendMessage(message: string) {
-    return this.http.post<{ reply: string }>(this.apiConfig.getNodeEndpoint('/gemini'), { message });
+    return this.http.post<{ reply: string }>(this.apiConfig.getFastApiEndpoint('/gemini'), { message });
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SocketService } from '../chat.service';
+import { OpenAIService } from '../openai.service';
 
 @Component({
   selector: 'app-ai-conversation',
@@ -8,25 +8,27 @@ import { SocketService } from '../chat.service';
 })
 
 export class AiConversationComponent {
-
-  // chat
   message = '';
   messages: string[] = [];
-  
-  constructor(private socketService: SocketService) { } 
+  loading = false;
 
-  ngOnInit(){
-     this.socketService.receiveMessage().subscribe((msg) => {
-      console.log('📥 Received from server:', msg);
-        this.messages.push(msg);
-      });
-  }
+  constructor(private openai: OpenAIService) { }
 
-  //chat
-   send() {
-    if (this.message.trim()) {
-      this.socketService.sendMessage(this.message);
-      this.message = '';
-    }
+  send() {
+    if (!this.message.trim() || this.loading) return;
+    const userMsg = this.message.trim();
+    this.messages.push(userMsg);
+    this.message = '';
+    this.loading = true;
+    this.openai.sendMessage(userMsg).subscribe({
+      next: (res) => {
+        this.messages.push(res.reply || res.response || '');
+        this.loading = false;
+      },
+      error: (err) => {
+        this.messages.push('Error: ' + (err.error?.detail || err.message || 'Request failed'));
+        this.loading = false;
+      }
+    });
   }
 }

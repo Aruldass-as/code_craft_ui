@@ -1,4 +1,4 @@
-<input [(ngModel)]="userMessage" placeholder="Type a message..." />
-    <button (click)="askAI()">Send</button>
+<input [(ngModel)]="userMessage" placeholder="Type a message..." (keyup.enter)="askAI()" />
+    <button (click)="askAI()" [disabled]="loading">Send</button>
     <div *ngIf="loading">Generating Answer...</div>
     <p *ngIf="aiResponse">{{aiResponse}}</p>

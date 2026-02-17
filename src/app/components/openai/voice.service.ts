@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiConfigService } from '../../services/api-config.service';
 
 
 export interface VoiceChatResponse {
@@ -14,15 +15,15 @@ export interface VoiceChatResponse {
 })
 
 export class VoiceService {
-  //private apiUrl = 'http://localhost:3000/api/voice-chatbot';
-  private apiUrl = 'https://code-craft-backend-jy7x.onrender.com/api/voice-chatbot';
- 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private apiConfig: ApiConfigService
+  ) {}
 
   sendAudio(audioBlob: Blob): Observable<VoiceChatResponse> {
     const formData = new FormData();
     formData.append('audio', audioBlob, 'voice.webm');
 
-    return this.http.post<VoiceChatResponse>(this.apiUrl, formData);
+    return this.http.post<VoiceChatResponse>(this.apiConfig.getFastApiEndpoint('/voice-chatbot'), formData);
   }
 }

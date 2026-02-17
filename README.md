@@ -4,18 +4,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Backend Requirements
 
-This frontend uses **two backends**:
+This frontend uses a **single FastAPI backend** for all features:
 
-| Backend | Features | Local URL | Deployed |
-|---------|----------|-----------|----------|
-| **FastAPI** | Claude, LlamaIndex, Fitness, Web Scrape, Docs Assist | `http://localhost:8000` | `fastapi-app-36j5.onrender.com` |
-| **Node.js** | OpenAI (chat, image, voice, video), Gemini, Perplexity | `http://localhost:3000/api` | `code-craft-backend-jy7x.onrender.com` |
+| Features | Local URL | Deployed |
+|----------|-----------|----------|
+| OpenAI (chat, image, voice), Claude, Gemini, Perplexity, LlamaIndex, Fitness, Web Scrape, Docs Assist | `http://localhost:8000` | `fastapi-app-36j5.onrender.com` |
 
 **For full functionality locally:**
 - Run FastAPI: `cd fastapi_app && uvicorn main:app --reload --port 8000`
-- Run Node.js backend on port 3000 (or use the deployed backend via `environment.ts`)
 
-**Without Node backend:** OpenAI, Gemini, and Perplexity tabs will fail. Claude, LlamaIndex, Fitness, Web Scrape, and Docs Assist work with FastAPI only.
+**Optional .env keys:** `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GOOGLE_API_KEY` (or `GEMINI_API_KEY`), `PERPLEXITY_API_KEY` for respective AI features.
 
 ## Development server
 

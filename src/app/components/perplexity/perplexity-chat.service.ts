@@ -10,6 +10,6 @@ export class PerplexityChatService {
   ) {}
 
   sendMessage(message: string) {
-    return this.http.post<{ reply: string }>(this.apiConfig.getNodeEndpoint('/perplexity'), { message });
+    return this.http.post<{ reply: string }>(this.apiConfig.getFastApiEndpoint('/perplexity'), { message });
   }
 }

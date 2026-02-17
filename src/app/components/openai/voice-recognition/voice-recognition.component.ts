@@ -10,6 +10,7 @@ import { VoiceService, VoiceChatResponse } from '../voice.service';
 export class VoiceRecognitionComponent {
   userText: string = '';
   botReply: string = '';
+  error: string = '';
   recording = false;
   mediaRecorder!: MediaRecorder;
   audioChunks: Blob[] = [];
@@ -35,6 +36,7 @@ export class VoiceRecognitionComponent {
     // };
 
     this.recording = true;
+    this.error = '';
     this.audioChunks = [];
 
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -44,14 +46,24 @@ export class VoiceRecognitionComponent {
 
     this.mediaRecorder.onstop = async () => {
       const audioBlob = new Blob(this.audioChunks, { type: 'audio/webm' });
-      this.voiceService.sendAudio(audioBlob).subscribe((res: VoiceChatResponse) => {
-        this.ngZone.run(() => {
-          this.userText = res.userText;
-          this.botReply = res.botReply;
-          this.loading = false;
-        });
-        this.currentAudio = new Audio(`data:audio/mpeg;base64,${res.audioBase64}`);
-        this.currentAudio.play();
+      this.voiceService.sendAudio(audioBlob).subscribe({
+        next: (res: VoiceChatResponse) => {
+          this.ngZone.run(() => {
+            this.userText = res.userText;
+            this.botReply = res.botReply;
+            this.error = '';
+            this.loading = false;
+          });
+          this.currentAudio = new Audio(`data:audio/mpeg;base64,${res.audioBase64}`);
+          this.currentAudio.play();
+        },
+        error: (err) => {
+          this.ngZone.run(() => {
+            this.error = err.error?.detail || err.error?.error || 'Voice chat failed.';
+            this.loading = false;
+          });
+          console.error(err);
+        }
       });
     };
 
@@ -73,9 +85,10 @@ export class VoiceRecognitionComponent {
     if (this.currentAudio) {
       this.currentAudio.pause();
       this.currentAudio.currentTime = 0;
-      this.userText = '';
-      this.botReply = '';
-       this.loading = false;
     }
+    this.userText = '';
+    this.botReply = '';
+    this.error = '';
+    this.loading = false;
   }
 }
