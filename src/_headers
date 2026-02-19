@@ -1,2 +1,3 @@
 /*
-Permissions-Policy: microphone=()
+# Allow microphone for voice recognition (same origin only)
+Permissions-Policy: microphone=(self)
