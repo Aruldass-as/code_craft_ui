@@ -20,8 +20,15 @@ export class VoiceRecognitionComponent {
   constructor(private voiceService: VoiceService, private ngZone: NgZone) {}
 
   async startRecording() {
+    if (!navigator.mediaDevices?.getUserMedia) {
+      this.error = 'Microphone not supported in this browser.';
+      return;
+    }
+    if (!window.isSecureContext) {
+      this.error = 'Microphone requires HTTPS. Use https://codecraft.life';
+      return;
+    }
     try {
-    //   // 1️⃣ Check microphone permission first
     // const permission = await navigator.permissions.query({ name: 'microphone' as PermissionName });
 
     // if (permission.state === 'denied') {
@@ -68,11 +75,22 @@ export class VoiceRecognitionComponent {
     };
 
     this.mediaRecorder.start();
-  } catch (err) {
-    console.error('Microphone permission denied', err);
+  } catch (err: unknown) {
+    const e = err as DOMException;
+    console.error('getUserMedia failed', e?.name, e?.message, err);
     this.recording = false;
     this.ngZone.run(() => {
-      this.error = 'Microphone access is required. Please allow it in your browser.';
+      if (e?.name === 'NotAllowedError' || e?.name === 'PermissionDeniedError') {
+        this.error = 'Microphone blocked. Allow it in browser settings (click lock icon in address bar).';
+      } else if (e?.name === 'NotFoundError') {
+        this.error = 'No microphone found. Connect a microphone and try again.';
+      } else if (e?.name === 'NotReadableError') {
+        this.error = 'Microphone in use by another app. Close it and try again.';
+      } else if (e?.name === 'SecurityError') {
+        this.error = 'Microphone blocked (secure context required). Use https://codecraft.life';
+      } else {
+        this.error = e?.message || 'Microphone access failed. Please try again.';
+      }
     });
   }
   }
