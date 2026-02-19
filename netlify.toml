@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist/instantanalyte_ui"
+
+# SPA redirect - serve index.html for all routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for all routes (microphone for voice recognition on codecraft.life)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Permissions-Policy = "microphone=*"
