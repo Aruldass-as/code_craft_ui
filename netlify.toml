@@ -12,4 +12,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Permissions-Policy = "microphone=*"
+    Permissions-Policy = 'microphone=(self "https://codecraft.life")'
