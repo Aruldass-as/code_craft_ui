@@ -16,8 +16,12 @@ export class VoiceRecognitionComponent {
   audioChunks: Blob[] = [];
   currentAudio: HTMLAudioElement | null = null;
   loading = false;
+  /** True when embedded in iframe (e.g. codecraft.life) - mic blocked by parent */
+  isEmbedded = false;
 
-  constructor(private voiceService: VoiceService, private ngZone: NgZone) {}
+  constructor(private voiceService: VoiceService, private ngZone: NgZone) {
+    this.isEmbedded = typeof window !== 'undefined' && window.self !== window.top;
+  }
 
   async startRecording() {
     try {
@@ -71,7 +75,13 @@ export class VoiceRecognitionComponent {
   } catch (err) {
     console.error('Microphone permission denied', err);
     this.recording = false;
-    alert('Microphone access is required to use this feature.');
+    this.ngZone.run(() => {
+      if (this.isEmbedded) {
+        this.error = 'Microphone blocked when embedded. Open in new tab to use voice.';
+      } else {
+        this.error = 'Microphone access is required. Please allow it in your browser.';
+      }
+    });
   }
   }
 

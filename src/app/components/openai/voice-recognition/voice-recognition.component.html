@@ -1,4 +1,5 @@
 <div>
+  <p *ngIf="isEmbedded" class="embedded-hint">Voice recognition doesn't work when embedded. <a href="https://melodious-phoenix-1af0bc.netlify.app/" target="_blank" rel="noopener" class="open-new-tab">Open in new tab</a> to use it.</p>
   <button (click)="startRecording()" [disabled]="recording">Start Recording</button>
   <button (click)="stopRecording()" [disabled]="!recording">Stop Recording</button>
   <button (click)="stop()" [disabled]="recording">Stop</button>
