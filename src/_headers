@@ -1,3 +1,3 @@
 /*
-# Allow microphone for voice recognition (same origin only)
-Permissions-Policy: microphone=(self)
+# Allow microphone for voice recognition (works when embedded at codecraft.life)
+Permissions-Policy: microphone=*
