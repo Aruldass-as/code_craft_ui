@@ -27,7 +27,7 @@ export class ImageGenerateComponent {
 
     this.openai.generateImage(this.prompt).subscribe({
       next: (res) => {
-        this.imageUrl = res?.url ?? res?.imageUrl ?? null;
+        this.imageUrl = res?.url ?? res?.imageUrl ?? res?.b64_data_url ?? null;
         this.loading = false;
       },
       error: (err) => {

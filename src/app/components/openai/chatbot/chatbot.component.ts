@@ -21,16 +21,16 @@ export class ChatbotComponent {
     }
     this.loading = true;
     this.aiResponse = '';
-    this.openai.sendMessage(msg).subscribe({
-      next: (res) => {
-        this.aiResponse = res?.reply ?? res?.response ?? '';
-        this.loading = false;
+    this.openai.sendMessageStream(msg).subscribe({
+      next: (chunk) => {
+        this.aiResponse += chunk;
+        this.loading = false; // show content as soon as first chunk arrives
       },
       error: (err) => {
-        const detail = err.error?.detail;
-        this.aiResponse = typeof detail === 'string' ? detail
-          : Array.isArray(detail) ? detail.map((d: any) => d?.msg ?? d).join(', ')
-          : err.error?.error || err.message || 'Request failed. Ensure FastAPI is running at http://localhost:8000';
+        this.aiResponse = err.message || 'Request failed. Ensure FastAPI is running at http://localhost:8000';
+        this.loading = false;
+      },
+      complete: () => {
         this.loading = false;
       }
     });
