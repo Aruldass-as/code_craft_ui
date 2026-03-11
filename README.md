@@ -1,6 +1,5 @@
 # Code Craft UI
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+version 16.1.3.
 
 ## Backend Requirements
 
@@ -39,3 +38,68 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 # code_craft_ui
+
+
+Structure:
+my-angular-app/ 
+
+├── e2e/                  # End-to-end tests 
+├── node_modules/         # Node dependencies 
+├── src/ 
+│   ├── app/ 
+│   │   ├── core/         # Singleton services, interceptors, guards, constants 
+│   │   │   ├── services/          # Global services 
+│   │   │   ├── guards/            # Route guards 
+│   │   │   ├── interceptors/    # HTTP interceptors 
+│   │   │   ├── models/           # Global models/interfaces 
+│   │   │   ├── constants/        # App-wide constants 
+│   │   │   └── core.module.ts 
+│   │   │ 
+│   │   ├── shared/                    # Reusable components, pipes, directives 
+│   │   │   ├── components/     # Shared UI components 
+│   │   │   ├── directives/         # Shared directives 
+│   │   │   ├── pipes/               # Shared pipes 
+│   │   │   └── shared.module.ts 
+│   │   │ 
+│   │   ├── features/              # Feature modules (lazy-loaded) 
+│   │   │   ├── auth/              # Authentication module 
+│   │   │   │   ├── components/ 
+│   │   │   │   ├── services/ 
+│   │   │   │   ├── auth-routing.module.ts 
+│   │   │   │   └── auth.module.ts 
+│   │   │   │ 
+│   │   │   ├── dashboard/         # Dashboard module 
+│   │   │   └── ...other feature modules/ 
+│   │   │ 
+│   │   ├── pages/                 # Non-feature route pages (optional) 
+│   │   │   └── home/ 
+│   │   │       ├── home.component.ts 
+│   │   │       ├── home.component.html 
+│   │   │       └── home.component.scss 
+│   │   │ 
+│   │   ├── state/                 # NgRx / Redux state management 
+│   │   │   ├── actions/ 
+│   │   │   ├── effects/ 
+│   │   │   ├── reducers/ 
+│   │   │   └── selectors/ 
+│   │   │ 
+│   │   ├── app-routing.module.ts  # Root routes 
+│   │   ├── app.component.ts 
+│   │   └── app.module.ts 
+│   │ 
+│   ├── assets/                    # Images, fonts, icons, static files 
+│   ├── environments/              # Environment configs (dev, prod) 
+│   │   ├── environment.ts 
+│   │   └── environment.prod.ts 
+│   ├── styles/                     # Global SCSS / CSS 
+│   │   └── _variables.scss 
+│   ├── index.html 
+│   └── main.ts 
+│ 
+├── angular.json                    # Angular CLI config 
+├── package.json 
+├── tsconfig.json 
+├── tsconfig.app.json 
+├── tsconfig.spec.json 
+├── karma.conf.js                    # Unit testing config 
+└── README.md 

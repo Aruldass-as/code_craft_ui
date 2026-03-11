@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './features/components/login/login.component';
+import { SignupComponent } from './features/components/signup/signup.component';
 import { ServiceProviderService } from './services/service-provider.service';
-import { OpenAIService } from './components/openai/openai.service';
-import { ClaudeChatService } from './components/claude/claude-chat.service';
-import { GeminiChatService } from './components/gemini/gemini-chat.service';
-import { PerplexityChatService } from './components/perplexity/perplexity-chat.service';
+import { OpenAIService } from './features/components/openai/openai.service';
+import { ClaudeChatService } from './features/components/claude/claude-chat.service';
+import { GeminiChatService } from './features/components/gemini/gemini-chat.service';
+import { PerplexityChatService } from './features/components/perplexity/perplexity-chat.service';
 import { HttpClientModule } from '@angular/common/http';
-import { LlamaIndexService } from './components/llama-index/llama-index.service';
-import { ResearchAssistantService } from './components/research-assistant/research-assistant.service';
-import { WebScrapeService } from './components/web-scrape/web-scrape.service';
+import { LlamaIndexService } from './features/components/llama-index/llama-index.service';
+import { ResearchAssistantService } from './features/components/research-assistant/research-assistant.service';
+import { WebScrapeService } from './features/components/web-scrape/web-scrape.service';
 import { ApiConfigService } from './services/api-config.service';
 // import { GoogleAuthService } from './services/google-auth.service';
 
@@ -22,8 +22,8 @@ import { ApiConfigService } from './services/api-config.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { productsReducer } from './components/state-component/products/state/products.reducer';
-import { ProductsEffects } from './components/state-component/products/state/products.effects';
+import { productsReducer } from './features/components/state-component/products/state/products.reducer';
+import { ProductsEffects } from './features/components/state-component/products/state/products.effects';
 
 @NgModule({
   declarations: [
