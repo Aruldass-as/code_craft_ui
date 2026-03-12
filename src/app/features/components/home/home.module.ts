@@ -19,7 +19,7 @@ import { ResearchAssistantComponent } from '../research-assistant/research-assis
 import { WebScrapeComponent } from '../web-scrape/web-scrape.component';
 
 // state-management component
-import { ProductsComponent } from '../state-component/products/products.component';
+import { ProductsComponent } from '../state-component/products/component/products.component';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WebScrapeService } from './web-scrape.service';
+import { FormsModule } from '@angular/forms';
 
 // interface ScrapeResult {
 //   url: string;

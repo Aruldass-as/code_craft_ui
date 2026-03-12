@@ -22,8 +22,8 @@ import { ApiConfigService } from './services/api-config.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { productsReducer } from './features/components/state-component/products/state/products.reducer';
-import { ProductsEffects } from './features/components/state-component/products/state/products.effects';
+import { productsReducer } from './state/products/products.reducer';
+import { ProductsEffects } from './state/products/products.effects';
 
 @NgModule({
   declarations: [

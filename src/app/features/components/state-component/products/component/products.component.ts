@@ -3,13 +3,11 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 // state-management component
-import { loadProducts } from './state/products.actions';
-import {
-  selectProducts,
-  selectProductsLoading,
-  selectProductsError
-} from './state/products.selectors';
-import { Product } from './product.model';
+import { loadProducts } from 'src/app/state/products/products.actions';
+import { 
+selectProducts, selectProductsLoading, selectProductsError
+ } from 'src/app/state/products/products.selectors';
+import { Product } from '../product.model';
 
 @Component({
   selector: 'app-products',
