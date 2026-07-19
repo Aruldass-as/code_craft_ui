@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { Observable } from 'rxjs';
-import { ApiConfigService } from '../../services/api-config.service';
+import { ApiConfigService } from '../../../services/api-config.service';
 
 @Injectable({ providedIn: 'root' })
 
